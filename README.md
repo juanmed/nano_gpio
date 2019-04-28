@@ -6,9 +6,22 @@ It is assumed you already went throught the Jetson Nano quick setup process and 
 
 To start off, the library that lets you use the GPIO in the Jetson Nano is namedJetson.GPIO. It is located in /opt/nvidia/jetson-gpio/lib/python. The Jetson.GPIO API instructions can be found in /opt/nvidia/jetson-gpio/doc/README.txt. I recommend you read through it and also check the examples.
 
-Instructions to use the library, taken from here, are as follows.
+Instructions to use the library, taken in part from [here](https://github.com/NVIDIA-AI-IOT/jetbot/issues/18), are as follows.
 
-a) 
+a) Execute the following from a terminal on your Jetson
+
+```bash
+sudo groupadd -f -r gpio
+sudo usermod -a -G gpio $USER
+sudo cp /opt/nvidia/jetson-gpio/etc/99-gpio.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+Then, reboot the Jetson
+
+```bash
+sudo reboot now
+```
+
 b) In your python script, add the library directories to the path where python will search for libraries:
 
 ```python
