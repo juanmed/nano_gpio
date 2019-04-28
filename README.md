@@ -1,4 +1,4 @@
-# Jetson Nanon GPIO
+# Jetson Nano GPIO
 
 This repository contains several examples on using the GPIO pins and libraries (Jetson.GPIO) in the Jetson Nano.
 
@@ -48,5 +48,10 @@ which should output any of 4: GPIO.BOARD, GPIO.BCM, GPIO.CVM, GPIO.TEGRA_SOC or
 None
 
 
+
+## Other resources
+
+On instaling Tensorflow, Pytorch, Keras and the PCA9685 PWM driver click [here](https://medium.com/@feicheung2016/getting-started-with-jetson-nano-and-autonomous-donkey-car-d4f25bbd1c83).
+To see hardware PWM devices [available](https://devtalk.nvidia.com/default/topic/1049655/jetson-nano/how-do-i-use-pwm-on-jetson-nano-/post/5328800/#5328800)
 
 
