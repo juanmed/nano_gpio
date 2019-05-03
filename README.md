@@ -1,4 +1,44 @@
-# Jetson Nano GPIO
+## I2C and the PCA9685 PWM chip
+
+Install [PCA9685-driver](https://github.com/voidpp/PCA9685-driver):
+
+```bash 
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+pip install PCA9685-driver
+```
+
+Check I2C devices:
+
+```bash
+nvidia@nvidia-desktop: sudo i2cdetect -y -r 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: 70 -- -- -- -- -- -- --                         
+```
+The 40 represents 0x40, which is the default address of PCA9685 chip.
+
+Add yourself to i2c group and reboot:
+
+```bash
+sudo usermod -a -G i2c username
+sudo reboot
+```
+
+Check your group settings. Note i2c appears:
+
+```bash
+vidia@nvidia-desktop:~/repositories/nano_gpio$ groups
+nvidia adm cdrom sudo audio dip video plugdev i2c lpadmin gdm sambashare gpio
+```
+
+
+## Jetson Nano GPIO
 
 This repository contains several examples on using the GPIO pins and libraries (Jetson.GPIO) in the Jetson Nano.
 
