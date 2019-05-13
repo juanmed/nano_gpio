@@ -7,6 +7,11 @@ sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
 pip install PCA9685-driver
 ```
 
+Connect PCA9685 to I2C Bus 1, pin header J41:
+
+PCA9685 SDA <---> SDA1 pin 3 (Jetson Nano)
+PCA9685 SCL <---> SCL1 pin 5 (Jetson Nano
+
 Check I2C devices:
 
 ```bash
@@ -37,6 +42,11 @@ vidia@nvidia-desktop:~/repositories/nano_gpio$ groups
 nvidia adm cdrom sudo audio dip video plugdev i2c lpadmin gdm sambashare gpio
 ```
 
+Finally run pca9685_tests.py 
+
+```bash
+python pca9685_tests.py
+```
 
 ## Jetson Nano GPIO
 
