@@ -10,7 +10,7 @@ pip install PCA9685-driver
 Connect PCA9685 to I2C Bus 1, pin header J41:
 
 PCA9685 SDA <---> SDA1 pin 3 (Jetson Nano)
-PCA9685 SCL <---> SCL1 pin 5 (Jetson Nano
+PCA9685 SCL <---> SCL1 pin 5 (Jetson Nano)
 
 Check I2C devices:
 
@@ -97,7 +97,43 @@ print(mode)
 which should output any of 4: GPIO.BOARD, GPIO.BCM, GPIO.CVM, GPIO.TEGRA_SOC or
 None
 
+## VRPN Client ROS on Jetson Nano
 
+If you are trying to connect an Optitrack Motion Tracker system using Motiv, the [ROS VRPN CLient](https://github.com/ros-drivers/vrpn_client_ros.git) will come useful. To install it on Jetson Nano follow:
+
+1) Install ROS Melodic follwoing [this tutorial](https://www.stereolabs.com/blog/ros-and-nvidia-jetson-nano/).
+
+2) Create a catkin workspace, and clone vrpn_client_ros inside the source folder and caktin_make:
+
+```bash
+cd ~/catkin_ws/src
+git clone -b kinetic-devel https://github.com/ros-drivers/vrpn_client_ros.git
+cd ..
+catkin_make
+source devel/setup.bash
+```
+
+(this was found in [this tutorial](https://answers.ros.org/question/297054/vrpn_client_ros-unable-to-locate-package/).
+
+3) if it fails (probably will fail) find dependencies using rosdep :
+Enter the catkin_ws folder and:
+
+```bash
+cd catkin_ws
+rosdep install --from-paths .
+```
+
+retry again step 2). catkin_make command should work and vrpn be installed.
+
+(this was found here https://answers.ros.org/question/227267/catkin_make-error-when-using-vrpn_client_ros/)
+
+4) tests vrpn:
+
+```bash
+roslaunch vrpn_client_ros sample.launch server:=<ip address>
+```
+
+Where <ip address> is the IP address of the computer running Motive with which you should be on the same network.
 
 ## Other resources
 
