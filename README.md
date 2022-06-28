@@ -93,5 +93,8 @@ None
 
 On instaling Tensorflow, Pytorch, Keras and the PCA9685 PWM driver click [here](https://medium.com/@feicheung2016/getting-started-with-jetson-nano-and-autonomous-donkey-car-d4f25bbd1c83).
 To see hardware PWM devices [available](https://devtalk.nvidia.com/default/topic/1049655/jetson-nano/how-do-i-use-pwm-on-jetson-nano-/post/5328800/#5328800)
+Interesting links:
+- [Save ~1GB Memory on Jetson Nano](https://www.zaferarican.com/post/how-to-save-1gb-memory-on-jetson-nano-by-installing-lubuntu-desktop)
+- [Docker related](https://blog.hypriot.com/post/nvidia-jetson-nano-intro/)
 
 
